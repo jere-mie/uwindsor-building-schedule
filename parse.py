@@ -8,12 +8,20 @@ with open('F22.txt', 'r') as f:
     text = [re.sub(r',\w+', '', i) for i in text]
     text = [re.sub(r' \(-\).+', '', i) for i in text]
     text = [re.sub(r'\d\d\d\d-\d\d-\d\d', '', i) for i in text]
-    text = [re.search(r'(M|T|W|TH|F|MW|TTH) \d\d:\d\d (AM|PM) \d\d:\d\d(AM|PM)[\w ]+\d', i) for i in text]
-    text = [i.group() if i is not None else '' for i in text]
+    text = [re.search(r'(M|T|W|TH|F|MW|TTH) (\d\d:\d\d) (AM|PM) (\d\d:\d\d(AM|PM))(BiologyBuilding|Erie Hall|Dillon Hall|Toldo HealthEducationCtr|Chrysler HallSouth|Chrysler HallNorth|OdetteBuilding|LambtonTower|Essex Hall|MemorialHall|HK Building|EducationBuilding|LeddyLibrary|West Library|FreedomWay|JackmanDramatic ArtCntre)[ ]*(B\d+|G\d+|\d+)', i) for i in text]
+    text = [i.groups() if i is not None else '' for i in text]
+    text = list(filter(lambda x: x != '', text))
+    # groups = [i[5] for i in text]
 
 
 # pp.pprint(text)
 # print(text)
 for i in text:
-    print(i)
+    print(f'|{i}|')
     print('------')
+print(len(text))
+# for i in groups:
+#     print(f'|{i}|\n---')
+# ggroups = set(groups)
+# for i in ggroups:
+#     print(f'|{i}|\n----------')
