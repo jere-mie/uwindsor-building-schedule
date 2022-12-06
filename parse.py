@@ -17,8 +17,9 @@ with open('F22.txt', 'r') as f:
 # pp.pprint(text)
 # print(text)
 for i in text:
-    print(f'|{i}|')
-    print('------')
+    # print(f'|{i}|')
+    print(f'{{"day":"{i[0]}", "start":"{i[1]+i[2]}", "end":"{i[3]}", "building":"{i[5]}", "room":"{i[6]}"}},')
+    # print('------')
 print(len(text))
 # for i in groups:
 #     print(f'|{i}|\n---')
