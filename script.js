@@ -1,8 +1,8 @@
-function compare(a, b){
-    let lookup = {"M":1, "MW":2, "T":3, "TTH":4, "W":5, "TH":6, "F":7};
-    if(lookup[a['day']] > lookup[b['day']]){
+function compare(a, b) {
+    let lookup = { "M": 1, "MW": 2, "T": 3, "TTH": 4, "W": 5, "TH": 6, "F": 7 };
+    if (lookup[a['day']] > lookup[b['day']]) {
         return 1;
-    }else if(lookup[a['day']] < lookup[b['day']]){
+    } else if (lookup[a['day']] < lookup[b['day']]) {
         return -1;
     }
     // equal days, check AM/PM start times
@@ -28,9 +28,9 @@ let run = () => {
     let room = document.getElementById('room').value;
     let results = data.filter(item => item["building"] == building && item["room"] == room);
     let output = document.getElementById('output');
-    let daylookup = {"M":"Monday", "MW":"Monday/Wednesday", "T":"Tuesday", "TTH":"Tuesday/Thursday", "W":"Wednesday", "TH":"Thursday", "F":"Friday"};
+    let daylookup = { "M": "Monday", "MW": "Monday/Wednesday", "T": "Tuesday", "TTH": "Tuesday/Thursday", "W": "Wednesday", "TH": "Thursday", "F": "Friday" };
 
-    if(results.length == 0){
+    if (results.length == 0) {
         output.innerHTML = '<h1>Could not find any results :(</h1>';
         return false;
     }
@@ -43,7 +43,7 @@ let run = () => {
             <th>Start</th>
             <th>End</th>
         </tr>`;
-    for(const element of results){
+    for (const element of results) {
         outHtml += `
         <tr>
             <td>${daylookup[element['day']]}</td>    
