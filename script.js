@@ -5,6 +5,21 @@ function compare(a, b){
     }else if(lookup[a['day']] < lookup[b['day']]){
         return -1;
     }
+    // equal days, check AM/PM start times
+    console.log(a['start'].slice(-2));
+    console.log(b['start'].slice(-2));
+
+    if (a['start'].slice(-2) > b['start'].slice(-2)) {
+        return 1;
+    } else if (a['start'].slice(-2) < b['start'].slice(-2)) {
+        return -1;
+    }
+    // equal AM/PM, check actual start times
+    if (a['start'] > b['start']) {
+        return 1;
+    } else if (a['start'] < b['start']) {
+        return -1;
+    }
     return 0;
 }
 
