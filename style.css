@@ -1,0 +1,51 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+    font-weight: 200;
+    text-align: center;
+    font-size: 3rem;
+}
+p {
+    text-align: center;
+}
+.formsec{
+    display: flex;
+    justify-content: center;
+}
+label, select, input{
+    padding: 8px;
+    font-size: 1rem;
+}
+input {
+    margin-left: 16px;
+}
+button {
+    padding: 8px;
+    font-size: 1.2rem;
+}
+#output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+.outtable {
+    border-collapse: collapse;
+    width: 40%;
+    min-width: 400px;
+}
+.outtable td, .outtable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.outtable tr:nth-child(even){background-color: #f2f2f2;}
+.outtable tr:hover {background-color: #ddd;}
+.outtable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0439aa;
+    color: white;
+}

@@ -5,51 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UWindsor Rooms</title>
+    <meta property="og:site_name" content="UWindsor Room Schedule" />
+    <meta property="og:title" content="University of Windsor Room Schedule" />
+    <meta property="og:description" content="Find when rooms are booked for classes at the University of Windsor" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>UWindsor Room Schedule</h1>
-    <p>parsing in progress, come back later 👀</p>
-    <form onsubmit="run(); return false">
-        <select name="building" id="building">
-            <option value="Erie Hall">Erie Hall</option>
-            <option value="BiologyBuilding">BiologyBuilding</option>
-            <option value="Chrysler HallNorth">Chrysler HallNorth</option>
-            <option value="Chrysler HallSouth">Chrysler HallSouth</option>
-            <option value="Dillon Hall">Dillon Hall</option>
-            <option value="EducationBuilding">EducationBuilding</option>
-            <option value="Essex Hall">Essex Hall</option>
-            <option value="FreedomWay">FreedomWay</option>
-            <option value="HK Building">HK Building</option>
-            <option value="JackmanDramatic ArtCntre">JackmanDramatic ArtCntre</option>
-            <option value="LambtonTower">LambtonTower</option>
-            <option value="LeddyLibrary">LeddyLibrary</option>
-            <option value="MemorialHall">MemorialHall</option>
-            <option value="OdetteBuilding">OdetteBuilding</option>
-            <option value="O'NeilMedicalEduc Centr">O'NeilMedicalEduc Centr</option>
-            <option value="Toldo HealthEducationCtr">Toldo HealthEducationCtr</option>
-            <option value="West Library">West Library</option>
-        </select>
-        <input type="text" id="room" placeholder="2123">
-        <button type="submit">Search</button>
-    </form>
+    <p>Check When Rooms are Booked for Classes</p>
+    <div class="formsec">
+        <form onsubmit="run(); return false">
+            <label for="building">Building</label>
+            <select name="building" id="building">
+                <option value="Erie Hall">Erie Hall</option>
+                <option value="BiologyBuilding">BiologyBuilding</option>
+                <option value="Chrysler HallNorth">Chrysler HallNorth</option>
+                <option value="Chrysler HallSouth">Chrysler HallSouth</option>
+                <option value="Dillon Hall">Dillon Hall</option>
+                <option value="EducationBuilding">EducationBuilding</option>
+                <option value="Essex Hall">Essex Hall</option>
+                <option value="FreedomWay">FreedomWay</option>
+                <option value="HK Building">HK Building</option>
+                <option value="JackmanDramatic ArtCntre">JackmanDramatic ArtCntre</option>
+                <option value="LambtonTower">LambtonTower</option>
+                <option value="LeddyLibrary">LeddyLibrary</option>
+                <option value="MemorialHall">MemorialHall</option>
+                <option value="OdetteBuilding">OdetteBuilding</option>
+                <option value="O'NeilMedicalEduc Centr">O'NeilMedicalEduc Centr</option>
+                <option value="Toldo HealthEducationCtr">Toldo HealthEducationCtr</option>
+                <option value="West Library">West Library</option>
+            </select>
+            <br>
+            <label for="room">Room</label>
+            <input type="text" id="room" placeholder="2123, G23, etc." required>
+            <br>
+            <p>
+                <button type="submit">Search</button>
+            </p>
+        </form>    
+    </div>
     <div id="output"></div>
     <script src="F22.js"></script>
-    <script>
-        let run = () => {
-            let building = document.getElementById('building').value;
-            let room = document.getElementById('room').value;
-            let results = F22data.filter(item => item["building"] == building && item["room"] == room);
-            let output = document.getElementById('output');
-            if(results.length == 0){
-                output.innerHTML = '<h1>Could not find any results :(</h1>';
-                return false;
-            }
-            output.innerHTML = '<h1>Results:</h1>';
-            for(const element of results){
-                output.innerHTML+=`<p>Day: ${element['day']}, Start: ${element['start']}, End:${element['end']}</p>`;
-            }
-            return false;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
