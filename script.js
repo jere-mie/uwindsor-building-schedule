@@ -1,12 +1,25 @@
+function compare(a, b){
+    let lookup = {"M":1, "MW":2, "T":3, "TTH":4, "W":5, "TH":6, "F":7};
+    if(lookup[a['day']] > lookup[b['day']]){
+        return 1;
+    }else if(lookup[a['day']] < lookup[b['day']]){
+        return -1;
+    }
+    return 0;
+}
+
 let run = () => {
     let building = document.getElementById('building').value;
     let room = document.getElementById('room').value;
     let results = F22data.filter(item => item["building"] == building && item["room"] == room);
     let output = document.getElementById('output');
+    let daylookup = {"M":"Monday", "MW":"Monday/Wednesday", "T":"Tuesday", "TTH":"Tuesday/Thursday", "W":"Wednesday", "TH":"Thursday", "F":"Friday"};
+
     if(results.length == 0){
         output.innerHTML = '<h1>Could not find any results :(</h1>';
         return false;
     }
+    results = results.sort(compare)
     outHtml = `
     <h1>Results For ${building} Room ${room}</h1>
     <table class="outtable">
@@ -18,7 +31,7 @@ let run = () => {
     for(const element of results){
         outHtml += `
         <tr>
-            <td>${element['day']}</td>    
+            <td>${daylookup[element['day']]}</td>    
             <td>${element['start']}</td>    
             <td>${element['end']}</td>    
         </tr>
