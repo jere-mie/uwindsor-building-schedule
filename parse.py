@@ -28,6 +28,9 @@ with open(f'data/{term}.txt', 'r') as f:
     text = [i.groups() if i is not None else '' for i in text]
     text = list(filter(lambda x: x != '', text))
 
+# unique elems only
+text = list(set(text))
+
 # out file
 f = open(f'data/{term}.js', 'w')
 
