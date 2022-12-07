@@ -33,7 +33,7 @@ button {
 .outtable {
     border-collapse: collapse;
     width: 40%;
-    min-width: 400px;
+    min-width: 250px;
 }
 .outtable td, .outtable th {
     border: 1px solid #ddd;

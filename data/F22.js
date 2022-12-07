@@ -1,4 +1,4 @@
-const F22data = [
+const data = [
     {"day":"TTH", "start":"01:00PM", "end":"02:20PM", "building":"Toldo HealthEducationCtr", "room":"104"},
     {"day":"TTH", "start":"10:00AM", "end":"11:20AM", "building":"Toldo HealthEducationCtr", "room":"200"},
     {"day":"F", "start":"09:00AM", "end":"11:50AM", "building":"O'NeilMedicalEduc Centr", "room":"3104"},

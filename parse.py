@@ -1,6 +1,8 @@
 import re
 
-with open('F22.txt', 'r') as f:
+term = 'F22'
+
+with open(f'data/{term}.txt', 'r') as f:
     # each room booking starts with "Section"
     text = f.read().split('Section')
 
@@ -27,12 +29,12 @@ with open('F22.txt', 'r') as f:
     text = list(filter(lambda x: x != '', text))
 
 # out file
-f = open('F22.js', 'w')
+f = open(f'data/{term}.js', 'w')
 
 # writing the JS object
-f.write("const F22data = [\n")
+f.write(f"const data = [\n")
 for i in range(len(text)):
     f.write(f'    {{"day":"{text[i][0]}", "start":"{text[i][1]+text[i][2]}", "end":"{text[i][3]}", "building":"{text[i][5]}", "room":"{text[i][6]}"}}' + ',\n' if i != len(text)-1 else '\n')
 f.write(']')
-
+f.close()
 print(f'Successfully parsed {len(text)} room bookings!')

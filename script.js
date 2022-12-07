@@ -11,7 +11,7 @@ function compare(a, b){
 let run = () => {
     let building = document.getElementById('building').value;
     let room = document.getElementById('room').value;
-    let results = F22data.filter(item => item["building"] == building && item["room"] == room);
+    let results = data.filter(item => item["building"] == building && item["room"] == room);
     let output = document.getElementById('output');
     let daylookup = {"M":"Monday", "MW":"Monday/Wednesday", "T":"Tuesday", "TTH":"Tuesday/Thursday", "W":"Wednesday", "TH":"Thursday", "F":"Friday"};
 
