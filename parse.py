@@ -4,7 +4,7 @@ with open('F22.txt', 'r') as f:
     # each room booking starts with "Section"
     text = f.read().split('Section')
 
-    # removing trailing newlines
+    # removing new lines
     text = [i.replace('\n', '').strip() for i in text]
 
     # removing online courses
