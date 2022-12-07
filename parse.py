@@ -1,6 +1,5 @@
 import re
 
-
 with open('F22.txt', 'r') as f:
     # each room booking starts with "Section"
     text = f.read().split('Section')
