@@ -9,28 +9,47 @@
 <body>
     <h1>UWindsor Room Schedule</h1>
     <p>parsing in progress, come back later 👀</p>
-    <form onsubmit="findRoom();return false;">
+    <form onsubmit="run(); return false">
         <select name="building" id="building">
-            <option value="BiologyBuilding">BiologyBuilding</option>
             <option value="Erie Hall">Erie Hall</option>
-            <option value="Dillon Hall">Dillon Hall</option>
-            <option value="Toldo HealthEducationCtr">Toldo HealthEducationCtr</option>
-            <option value="Chrysler HallSouth">Chrysler HallSouth</option>
+            <option value="BiologyBuilding">BiologyBuilding</option>
             <option value="Chrysler HallNorth">Chrysler HallNorth</option>
-            <option value="OdetteBuilding">OdetteBuilding</option>
-            <option value="LambtonTower">LambtonTower</option>
-            <option value="Essex Hall">Essex Hall</option>
-            <option value="MemorialHall">MemorialHall</option>
-            <option value="HK Building">HK Building</option>
+            <option value="Chrysler HallSouth">Chrysler HallSouth</option>
+            <option value="Dillon Hall">Dillon Hall</option>
             <option value="EducationBuilding">EducationBuilding</option>
-            <option value="LeddyLibrary">LeddyLibrary</option>
-            <option value="West Library">West Library</option>
+            <option value="Essex Hall">Essex Hall</option>
             <option value="FreedomWay">FreedomWay</option>
+            <option value="HK Building">HK Building</option>
             <option value="JackmanDramatic ArtCntre">JackmanDramatic ArtCntre</option>
+            <option value="LambtonTower">LambtonTower</option>
+            <option value="LeddyLibrary">LeddyLibrary</option>
+            <option value="MemorialHall">MemorialHall</option>
+            <option value="OdetteBuilding">OdetteBuilding</option>
             <option value="O'NeilMedicalEduc Centr">O'NeilMedicalEduc Centr</option>
+            <option value="Toldo HealthEducationCtr">Toldo HealthEducationCtr</option>
+            <option value="West Library">West Library</option>
         </select>
         <input type="text" id="room" placeholder="2123">
+        <button type="submit">Search</button>
     </form>
+    <div id="output"></div>
     <script src="F22.js"></script>
+    <script>
+        let run = () => {
+            let building = document.getElementById('building').value;
+            let room = document.getElementById('room').value;
+            let results = F22data.filter(item => item["building"] == building && item["room"] == room);
+            let output = document.getElementById('output');
+            if(results.length == 0){
+                output.innerHTML = '<h1>Could not find any results :(</h1>';
+                return false;
+            }
+            output.innerHTML = '<h1>Results:</h1>';
+            for(const element of results){
+                output.innerHTML+=`<p>Day: ${element['day']}, Start: ${element['start']}, End:${element['end']}</p>`;
+            }
+            return false;
+        }
+    </script>
 </body>
 </html>
