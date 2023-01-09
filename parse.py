@@ -1,6 +1,6 @@
 import re
 
-term = 'F22'
+term = 'W23'
 
 with open(f'data/{term}.txt', 'r') as f:
     # each room booking starts with "Section"
